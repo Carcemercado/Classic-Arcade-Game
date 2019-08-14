@@ -1,9 +1,10 @@
+//Create game variables for the score.
 let gameScore = 0,
   lives = 3,
   livesLeft = document.querySelector(".lives > span"),
   score = document.querySelector(".score > span");
 
-// Enemies our player must avoid
+// Create game enemies and movement logic.
 class Enemy {
   constructor(x, y, movement) {
     // Variables applied to each of our instances go here,
@@ -25,15 +26,14 @@ class Enemy {
     this.x += this.movement * dt;
     livesLeft.innerText = lives;
 
-    // Restarts enemy movement from the left when Player reaches the water
+    // Restarts enemy movement when Player reaches the water
     if (this.x > 500) {
       this.x = -150;
       //Controls the enemy movement speed
-      //New Feature (levels): *400-600 ok speed, anything higher will prove difficult to cross.
       this.movement = 130 + Math.floor(Math.random() * 500);
     }
 
-    // Checks collisons and restarts player at the bottom
+    // Checks collisons and restarts player object
     if (
       player.x < this.x + 60 &&
       player.x + 40 > this.x &&
@@ -71,7 +71,7 @@ class Player {
     this.x = x;
     this.y = y;
     this.movement = movement;
-    this.sprite = "images/char-boy.png";
+    this.sprite = "images/char-cat-girl.png";
   }
   update() {
     // Stops Player from moving off the left/right side of canvas
