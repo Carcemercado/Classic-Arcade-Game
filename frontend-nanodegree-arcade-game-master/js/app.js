@@ -1,4 +1,6 @@
 //Create game variables for the score.
+// Whole-script strict mode syntax
+'use strict';
 let gameScore = 0,
   lives = 3,
   livesLeft = document.querySelector(".lives > span"),
